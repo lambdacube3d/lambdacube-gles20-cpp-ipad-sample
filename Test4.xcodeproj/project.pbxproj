@@ -9,12 +9,17 @@
 /* Begin PBXBuildFile section */
 		C017E97C1BB8588F005C3367 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C017E97B1BB8588F005C3367 /* main.m */; };
 		C017E97F1BB8588F005C3367 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C017E97E1BB8588F005C3367 /* AppDelegate.m */; };
-		C017E9821BB8588F005C3367 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C017E9811BB8588F005C3367 /* ViewController.m */; };
-		C017E9851BB8588F005C3367 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C017E9831BB8588F005C3367 /* Main.storyboard */; };
 		C017E9871BB8588F005C3367 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C017E9861BB8588F005C3367 /* Assets.xcassets */; };
 		C017E98A1BB8588F005C3367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C017E9881BB8588F005C3367 /* LaunchScreen.storyboard */; };
 		C017E9951BB8588F005C3367 /* Test4Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C017E9941BB8588F005C3367 /* Test4Tests.m */; };
 		C017E9A01BB8588F005C3367 /* Test4UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C017E99F1BB8588F005C3367 /* Test4UITests.m */; };
+		C017E9B21BB85ABB005C3367 /* IR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C017E9AD1BB85ABB005C3367 /* IR.cpp */; settings = {ASSET_TAGS = (); }; };
+		C017E9B31BB85ABB005C3367 /* RT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C017E9B01BB85ABB005C3367 /* RT.cpp */; settings = {ASSET_TAGS = (); }; };
+		C0429FB81BBEAFB400FD4018 /* LambdaCubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0429FB71BBEAFB400FD4018 /* LambdaCubeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		C0429FBA1BBEB08400FD4018 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0429FB91BBEB08400FD4018 /* MainStoryboard.storyboard */; settings = {ASSET_TAGS = (); }; };
+		C0429FBC1BBEEBC800FD4018 /* LCDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0429FBB1BBEEBC800FD4018 /* LCDriver.mm */; settings = {ASSET_TAGS = (); }; };
+		C0429FBF1BBFF82000FD4018 /* gfx02.json in Resources */ = {isa = PBXBuildFile; fileRef = C0429FBE1BBFF82000FD4018 /* gfx02.json */; settings = {ASSET_TAGS = (); }; };
+		C0429FC21BBFFE3600FD4018 /* LambdaCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,9 +44,6 @@
 		C017E97B1BB8588F005C3367 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C017E97D1BB8588F005C3367 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C017E97E1BB8588F005C3367 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C017E9801BB8588F005C3367 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		C017E9811BB8588F005C3367 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		C017E9841BB8588F005C3367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C017E9861BB8588F005C3367 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C017E9891BB8588F005C3367 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C017E98B1BB8588F005C3367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -51,6 +53,19 @@
 		C017E99B1BB8588F005C3367 /* Test4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C017E99F1BB8588F005C3367 /* Test4UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Test4UITests.m; sourceTree = "<group>"; };
 		C017E9A11BB8588F005C3367 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C017E9AD1BB85ABB005C3367 /* IR.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = IR.cpp; sourceTree = "<group>"; };
+		C017E9AE1BB85ABB005C3367 /* IR.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = IR.hpp; sourceTree = "<group>"; };
+		C017E9AF1BB85ABB005C3367 /* RT.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RT.hpp; sourceTree = "<group>"; };
+		C017E9B01BB85ABB005C3367 /* RT.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RT.cpp; sourceTree = "<group>"; };
+		C017E9B11BB85ABB005C3367 /* json.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = json.hpp; sourceTree = "<group>"; };
+		C0429FB61BBEAFB400FD4018 /* LambdaCubeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LambdaCubeViewController.h; sourceTree = "<group>"; };
+		C0429FB71BBEAFB400FD4018 /* LambdaCubeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LambdaCubeViewController.m; sourceTree = "<group>"; };
+		C0429FB91BBEB08400FD4018 /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = MainStoryboard.storyboard; path = ../MainStoryboard.storyboard; sourceTree = "<group>"; };
+		C0429FBB1BBEEBC800FD4018 /* LCDriver.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = LCDriver.mm; sourceTree = "<group>"; };
+		C0429FBD1BBEEBEB00FD4018 /* LCDriver.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LCDriver.h; sourceTree = "<group>"; };
+		C0429FBE1BBFF82000FD4018 /* gfx02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gfx02.json; sourceTree = "<group>"; };
+		C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LambdaCube.cpp; sourceTree = "<group>"; };
+		C0429FC11BBFFE3600FD4018 /* LambdaCube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LambdaCube.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +116,21 @@
 		C017E9791BB8588F005C3367 /* Test4 */ = {
 			isa = PBXGroup;
 			children = (
+				C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */,
+				C0429FC11BBFFE3600FD4018 /* LambdaCube.hpp */,
+				C0429FBE1BBFF82000FD4018 /* gfx02.json */,
+				C017E9AD1BB85ABB005C3367 /* IR.cpp */,
+				C017E9AE1BB85ABB005C3367 /* IR.hpp */,
+				C017E9AF1BB85ABB005C3367 /* RT.hpp */,
+				C017E9B01BB85ABB005C3367 /* RT.cpp */,
+				C017E9B11BB85ABB005C3367 /* json.hpp */,
 				C017E97D1BB8588F005C3367 /* AppDelegate.h */,
 				C017E97E1BB8588F005C3367 /* AppDelegate.m */,
-				C017E9801BB8588F005C3367 /* ViewController.h */,
-				C017E9811BB8588F005C3367 /* ViewController.m */,
-				C017E9831BB8588F005C3367 /* Main.storyboard */,
+				C0429FB61BBEAFB400FD4018 /* LambdaCubeViewController.h */,
+				C0429FB71BBEAFB400FD4018 /* LambdaCubeViewController.m */,
+				C0429FBB1BBEEBC800FD4018 /* LCDriver.mm */,
+				C0429FBD1BBEEBEB00FD4018 /* LCDriver.h */,
+				C0429FB91BBEB08400FD4018 /* MainStoryboard.storyboard */,
 				C017E9861BB8588F005C3367 /* Assets.xcassets */,
 				C017E9881BB8588F005C3367 /* LaunchScreen.storyboard */,
 				C017E98B1BB8588F005C3367 /* Info.plist */,
@@ -247,8 +272,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C017E98A1BB8588F005C3367 /* LaunchScreen.storyboard in Resources */,
+				C0429FBF1BBFF82000FD4018 /* gfx02.json in Resources */,
 				C017E9871BB8588F005C3367 /* Assets.xcassets in Resources */,
-				C017E9851BB8588F005C3367 /* Main.storyboard in Resources */,
+				C0429FBA1BBEB08400FD4018 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +299,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C017E9821BB8588F005C3367 /* ViewController.m in Sources */,
+				C017E9B31BB85ABB005C3367 /* RT.cpp in Sources */,
+				C0429FC21BBFFE3600FD4018 /* LambdaCube.cpp in Sources */,
+				C0429FB81BBEAFB400FD4018 /* LambdaCubeViewController.m in Sources */,
 				C017E97F1BB8588F005C3367 /* AppDelegate.m in Sources */,
+				C017E9B21BB85ABB005C3367 /* IR.cpp in Sources */,
+				C0429FBC1BBEEBC800FD4018 /* LCDriver.mm in Sources */,
 				C017E97C1BB8588F005C3367 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,14 +341,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C017E9831BB8588F005C3367 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C017E9841BB8588F005C3367 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C017E9881BB8588F005C3367 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -501,6 +523,7 @@
 				C017E9A61BB8588F005C3367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C017E9A71BB8588F005C3367 /* Build configuration list for PBXNativeTarget "Test4Tests" */ = {
 			isa = XCConfigurationList;
@@ -509,6 +532,7 @@
 				C017E9A91BB8588F005C3367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C017E9AA1BB8588F005C3367 /* Build configuration list for PBXNativeTarget "Test4UITests" */ = {
 			isa = XCConfigurationList;
@@ -517,6 +541,7 @@
 				C017E9AC1BB8588F005C3367 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
