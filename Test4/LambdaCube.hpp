@@ -188,14 +188,19 @@ struct Texture {
   unsigned int  texture;
 };
 
+struct StreamInfo {
+  std::string name;
+  int         index;
+};
+
 class GLProgram {
   public:
     unsigned int program;
     unsigned int vertexShader;
     unsigned int fragmentShader;
     std::map<::UniformName, int> programUniforms;
-    std::map<::UniformName, int> programStreams;
     std::map<::UniformName, int> programInTextures;
+    std::map<::UniformName, StreamInfo> programStreams;
 };
 
 class GLES20Pipeline {

@@ -733,7 +733,8 @@ std::shared_ptr<GLProgram> createProgram(std::shared_ptr<Program> p_) {
   for(auto const &i : p->programStreams) {
     loc = glGetAttribLocation(po, i.first.c_str());
     if (loc >= 0) {
-      glp->programStreams[i.first] = loc;
+      auto param = std::static_pointer_cast<data::Parameter>(i.second);
+      glp->programStreams[i.first] = {.name = param->name, .index = loc};
     }
   }
   return glp;
@@ -1041,13 +1042,11 @@ void GLES20Pipeline::render() {
           }
           // setup streams
           for (auto s: programs[currentProgram]->programStreams) {
-              //std::cout << s.first;
-            setStream(s.second,*o->streams->map[/*s.first*/"position4"]);
+            setStream(s.second.index,*o->streams->map[s.second.name]);
           }
           // draw call
           // TODO: support index buffers
             glDrawArrays(o->glMode, 0, o->glCount);
-            //glDrawArrays(o->glMode, 0, 1);
         }
       }
       break;
