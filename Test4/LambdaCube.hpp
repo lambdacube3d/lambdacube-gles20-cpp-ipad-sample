@@ -203,6 +203,12 @@ class GLProgram {
     std::map<::UniformName, StreamInfo> programStreams;
 };
 
+struct GLStreamData {
+  int glMode;
+  int glCount;
+  StreamMap streams;
+};
+
 class GLES20Pipeline {
   public:
     GLES20Pipeline(std::shared_ptr<Pipeline> ppl);
@@ -221,6 +227,7 @@ class GLES20Pipeline {
     std::vector<Texture> textures;
     std::vector<unsigned int> targets;
     std::vector<std::shared_ptr<GLProgram>> programs;
+    std::vector<std::shared_ptr<GLStreamData>> streamData;
     unsigned int currentProgram;
     bool hasCurrentProgram;
 };

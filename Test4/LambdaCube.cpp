@@ -63,6 +63,19 @@
     void DrawElements( enum mode, sizei count, enum type, void *indices );
 */
 
+enum Type inputType(std::shared_ptr<InputType> t) {
+  switch (t->tag) {
+    case InputType::tag::Float: return Type::FLOAT;
+    case InputType::tag::V2F:   return Type::FLOAT_VEC2;
+    case InputType::tag::V3F:   return Type::FLOAT_VEC3;
+    case InputType::tag::V4F:   return Type::FLOAT_VEC4;
+    case InputType::tag::M22F:  return Type::FLOAT_MAT2;
+    case InputType::tag::M33F:  return Type::FLOAT_MAT3;
+    case InputType::tag::M44F:  return Type::FLOAT_MAT4;
+  }
+  throw "illegal input type";
+}
+
 int primitiveMode(Primitive p) {
   switch (p) {
     case Primitive::TriangleStrip:  return GL_TRIANGLE_STRIP;
@@ -689,6 +702,58 @@ unsigned int GLES20Pipeline::createRenderTarget(std::shared_ptr<RenderTarget> t_
   return fb;
 }
 
+std::shared_ptr<GLStreamData> createStreamData(std::shared_ptr<StreamData> s_) {
+  auto s = std::static_pointer_cast<data::StreamData>(s_);
+  std::shared_ptr<GLStreamData> gls(new GLStreamData());
+
+  switch (s->streamPrimitive->tag) {
+    case FetchPrimitive::tag::Points:    gls->glMode = GL_POINTS;    break;
+    case FetchPrimitive::tag::Lines:     gls->glMode = GL_LINES;     break;
+    case FetchPrimitive::tag::Triangles: gls->glMode = GL_TRIANGLES; break;
+  }
+  auto buffer = std::shared_ptr<Buffer>(new Buffer());
+  for (auto i : s->streamData) {
+    switch (i.second->tag) {
+      case ArrayValue::tag::VBoolArray: {
+        auto a = std::static_pointer_cast<data::VBoolArray>(i.second);
+        // TODO
+      }
+      break;
+      case ArrayValue::tag::VIntArray: {
+        auto a = std::static_pointer_cast<data::VIntArray>(i.second);
+        // TODO
+        //auto type = inputType(s->streamType[i.first]);
+        //gls->streams.add(i.first, type, buffer, buffer->add(a->_0));
+      }
+      break;
+      case ArrayValue::tag::VWordArray: {
+        auto a = std::static_pointer_cast<data::VWordArray>(i.second);
+        // TODO
+        //auto type = inputType(s->streamType[i.first]);
+        //gls->streams.add(i.first, type, buffer, buffer->add(a->_0));
+      }
+      break;
+      case ArrayValue::tag::VFloatArray: {
+        auto a = std::static_pointer_cast<data::VFloatArray>(i.second);
+        auto type = inputType(s->streamType[i.first]);
+        gls->streams.add(i.first, type, buffer, buffer->add(a->_0));
+      }
+      break;
+    }
+  }
+  buffer->freeze();
+  gls->streams.validate(); // TODO
+
+  gls->glCount = 0;
+  for (auto i : gls->streams.map) {
+    if (i.second->isArray) {
+      gls->glCount = i.second->buffer->size[i.second->index] / i.second->glSize;
+      break;
+    }
+  }
+  return gls;
+}
+
 std::shared_ptr<GLProgram> createProgram(std::shared_ptr<Program> p_) {
   auto p = std::static_pointer_cast<data::Program>(p_);
   // vertex shader
@@ -761,6 +826,10 @@ GLES20Pipeline::GLES20Pipeline(std::shared_ptr<Pipeline> ppl_) {
   //  programs
   for (auto i : ppl->programs) {
     programs.push_back(createProgram(i));
+  }
+  //  stream data
+  for (auto i : ppl->streams) {
+    streamData.push_back(createStreamData(i));
   }
   glReleaseShaderCompiler();
 }
@@ -1046,12 +1115,21 @@ void GLES20Pipeline::render() {
           }
           // draw call
           // TODO: support index buffers
-            glDrawArrays(o->glMode, 0, o->glCount);
+          glDrawArrays(o->glMode, 0, o->glCount);
         }
       }
       break;
-      case Command::tag::RenderStream:
-        // TODO
+      case Command::tag::RenderStream: if (input && pipeline && hasCurrentProgram) {
+        auto cmd = std::static_pointer_cast<data::RenderStream>(i);
+        auto data = streamData[cmd->_0];
+        // setup streams
+        for (auto s: programs[currentProgram]->programStreams) {
+          setStream(s.second.index,*data->streams.map[s.second.name]);
+        }
+        // draw call
+        // TODO: support index buffers
+        glDrawArrays(data->glMode, 0, data->glCount);
+      }
       break;
 
       // unused commands
