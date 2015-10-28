@@ -70,7 +70,8 @@
 #pragma mark - GLKViewDelegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-    [_lcDriver render];
+    float t = self.timeSinceFirstResume;
+    [_lcDriver render:t];
 }
 
 #pragma mark - GLKViewControllerDelegate

@@ -123,7 +123,7 @@ std::vector<float> g_uv_buffer_data =
 
 - (void)sayHello:(unsigned int)screenTarget width:(unsigned int)w height:(unsigned int) h {
 
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"gfx02" ofType:@"json"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"rotate01" ofType:@"json"];
     NSData *myData = [NSData dataWithContentsOfFile:filePath];
     if (myData) {
         json jobjIn = json::parse((const char*)myData.bytes);
@@ -145,13 +145,20 @@ std::vector<float> g_uv_buffer_data =
 
         // add game 3D object
         _object = _input->createObject("stream4", Primitive::TriangleList, _attributes, {});
-        //M44F mat;
-        //_object->setUniform("ModelMatrix", mat);
+        M44F mat = { {1.0, 0.0, 0.0, 0.0}
+                   , {0.0, 1.0, 0.0, 0.0}
+                   , {0.0, 0.0, 1.0, 0.0}
+                   , {0.0, 0.0, 0.0, 1.0}
+                   };
+        _object->setUniform("MVP", mat);
+        float time = 0.0;
+        _object->setUniform("Time", time);
 
     }
 }
 
-- (void)render {
+- (void)render:(float)t {
+    _object->setUniform("Time", t);
     _ppl->render();
 }
 @end

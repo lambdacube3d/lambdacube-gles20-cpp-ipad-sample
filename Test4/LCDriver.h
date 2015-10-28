@@ -11,7 +11,7 @@
 @interface LCDriver : NSObject
 
 - (void)sayHello:(unsigned int)screenTarget width:(unsigned int)w height:(unsigned int) h;
-- (void)render;
+- (void)render:(float) t;
 
 
 @end

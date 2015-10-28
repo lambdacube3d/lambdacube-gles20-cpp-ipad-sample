@@ -1092,8 +1092,8 @@ void GLES20Pipeline::render() {
         auto cmd = std::static_pointer_cast<data::SetSamplerUniform>(i);
         int sampler = programs[currentProgram]->programInTextures[cmd->_0];
         glUniform1i(sampler,cmd->_1);
+        break;
       }
-      break;
       case Command::tag::RenderSlot: if (input && pipeline && hasCurrentProgram) {
         auto cmd = std::static_pointer_cast<data::RenderSlot>(i);
         auto slot = std::static_pointer_cast<data::Slot>(pipeline->slots[cmd->_0]);
@@ -1117,8 +1117,8 @@ void GLES20Pipeline::render() {
           // TODO: support index buffers
           glDrawArrays(o->glMode, 0, o->glCount);
         }
+        break;
       }
-      break;
       case Command::tag::RenderStream: if (input && pipeline && hasCurrentProgram) {
         auto cmd = std::static_pointer_cast<data::RenderStream>(i);
         auto data = streamData[cmd->_0];
@@ -1129,8 +1129,8 @@ void GLES20Pipeline::render() {
         // draw call
         // TODO: support index buffers
         glDrawArrays(data->glMode, 0, data->glCount);
+        break;
       }
-      break;
 
       // unused commands
       case Command::tag::GenerateMipMap:

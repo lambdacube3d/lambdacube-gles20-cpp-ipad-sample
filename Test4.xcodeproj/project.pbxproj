@@ -13,13 +13,15 @@
 		C017E98A1BB8588F005C3367 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C017E9881BB8588F005C3367 /* LaunchScreen.storyboard */; };
 		C017E9951BB8588F005C3367 /* Test4Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = C017E9941BB8588F005C3367 /* Test4Tests.m */; };
 		C017E9A01BB8588F005C3367 /* Test4UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C017E99F1BB8588F005C3367 /* Test4UITests.m */; };
-		C017E9B21BB85ABB005C3367 /* IR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C017E9AD1BB85ABB005C3367 /* IR.cpp */; settings = {ASSET_TAGS = (); }; };
-		C017E9B31BB85ABB005C3367 /* RT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C017E9B01BB85ABB005C3367 /* RT.cpp */; settings = {ASSET_TAGS = (); }; };
-		C0429FB81BBEAFB400FD4018 /* LambdaCubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0429FB71BBEAFB400FD4018 /* LambdaCubeViewController.m */; settings = {ASSET_TAGS = (); }; };
-		C0429FBA1BBEB08400FD4018 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0429FB91BBEB08400FD4018 /* MainStoryboard.storyboard */; settings = {ASSET_TAGS = (); }; };
-		C0429FBC1BBEEBC800FD4018 /* LCDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0429FBB1BBEEBC800FD4018 /* LCDriver.mm */; settings = {ASSET_TAGS = (); }; };
-		C0429FBF1BBFF82000FD4018 /* gfx02.json in Resources */ = {isa = PBXBuildFile; fileRef = C0429FBE1BBFF82000FD4018 /* gfx02.json */; settings = {ASSET_TAGS = (); }; };
-		C0429FC21BBFFE3600FD4018 /* LambdaCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */; settings = {ASSET_TAGS = (); }; };
+		C017E9B21BB85ABB005C3367 /* IR.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C017E9AD1BB85ABB005C3367 /* IR.cpp */; };
+		C017E9B31BB85ABB005C3367 /* RT.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C017E9B01BB85ABB005C3367 /* RT.cpp */; };
+		C0429FB81BBEAFB400FD4018 /* LambdaCubeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C0429FB71BBEAFB400FD4018 /* LambdaCubeViewController.m */; };
+		C0429FBA1BBEB08400FD4018 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C0429FB91BBEB08400FD4018 /* MainStoryboard.storyboard */; };
+		C0429FBC1BBEEBC800FD4018 /* LCDriver.mm in Sources */ = {isa = PBXBuildFile; fileRef = C0429FBB1BBEEBC800FD4018 /* LCDriver.mm */; };
+		C0429FBF1BBFF82000FD4018 /* gfx02.json in Resources */ = {isa = PBXBuildFile; fileRef = C0429FBE1BBFF82000FD4018 /* gfx02.json */; };
+		C0429FC21BBFFE3600FD4018 /* LambdaCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */; };
+		C077189A1BE1274A0051B6BE /* example06.json in Resources */ = {isa = PBXBuildFile; fileRef = C07718991BE1274A0051B6BE /* example06.json */; };
+		C077189C1BE1818A0051B6BE /* rotate01.json in Resources */ = {isa = PBXBuildFile; fileRef = C077189B1BE1818A0051B6BE /* rotate01.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,8 @@
 		C0429FBE1BBFF82000FD4018 /* gfx02.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = gfx02.json; sourceTree = "<group>"; };
 		C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LambdaCube.cpp; sourceTree = "<group>"; };
 		C0429FC11BBFFE3600FD4018 /* LambdaCube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LambdaCube.hpp; sourceTree = "<group>"; };
+		C07718991BE1274A0051B6BE /* example06.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example06.json; sourceTree = "<group>"; };
+		C077189B1BE1818A0051B6BE /* rotate01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rotate01.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,8 @@
 		C017E9791BB8588F005C3367 /* Test4 */ = {
 			isa = PBXGroup;
 			children = (
+				C077189B1BE1818A0051B6BE /* rotate01.json */,
+				C07718991BE1274A0051B6BE /* example06.json */,
 				C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */,
 				C0429FC11BBFFE3600FD4018 /* LambdaCube.hpp */,
 				C0429FBE1BBFF82000FD4018 /* gfx02.json */,
@@ -272,8 +278,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C017E98A1BB8588F005C3367 /* LaunchScreen.storyboard in Resources */,
+				C077189C1BE1818A0051B6BE /* rotate01.json in Resources */,
 				C0429FBF1BBFF82000FD4018 /* gfx02.json in Resources */,
 				C017E9871BB8588F005C3367 /* Assets.xcassets in Resources */,
+				C077189A1BE1274A0051B6BE /* example06.json in Resources */,
 				C0429FBA1BBEB08400FD4018 /* MainStoryboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
