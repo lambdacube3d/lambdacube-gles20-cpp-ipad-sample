@@ -12,6 +12,7 @@
 
 - (void)sayHello:(unsigned int)screenTarget width:(unsigned int)w height:(unsigned int) h;
 - (void)render:(float) t;
+- (void)render2:(float) t;
 
 
 @end

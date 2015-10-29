@@ -14,6 +14,7 @@
 
 @interface LCDriver () {
     GLES20Pipeline * _ppl;
+    GLES20Pipeline * _ppl2;
     std::shared_ptr<PipelineInput> _input;
     std::shared_ptr<Buffer> _buffer;
     std::shared_ptr<StreamMap> _attributes;
@@ -123,42 +124,57 @@ std::vector<float> g_uv_buffer_data =
 
 - (void)sayHello:(unsigned int)screenTarget width:(unsigned int)w height:(unsigned int) h {
 
+    // pipeline 1
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"rotate01" ofType:@"json"];
     NSData *myData = [NSData dataWithContentsOfFile:filePath];
-    if (myData) {
-        json jobjIn = json::parse((const char*)myData.bytes);
-        auto ppl = fromJSON(W<std::shared_ptr<Pipeline>>(),jobjIn);
-        _ppl = new GLES20Pipeline(ppl);
-        _ppl->screenTarget = screenTarget;
+    if (!myData) return;
+    json jobjIn = json::parse((const char*)myData.bytes);
+    auto ppl = fromJSON(W<std::shared_ptr<Pipeline>>(),jobjIn);
+    _ppl = new GLES20Pipeline(ppl);
+    _ppl->screenTarget = screenTarget;
 
-        _input = std::shared_ptr<PipelineInput>(new PipelineInput());
-        _input->setScreenSize(w, h);
-        _ppl->setPipelineInput(_input);
+    // pipeline 2
+    filePath = [[NSBundle mainBundle] pathForResource:@"example06" ofType:@"json"];
+    myData = [NSData dataWithContentsOfFile:filePath];
+    if (!myData) return;
+    jobjIn = json::parse((const char*)myData.bytes);
+    auto ppl2 = fromJSON(W<std::shared_ptr<Pipeline>>(),jobjIn);
+    _ppl2 = new GLES20Pipeline(ppl2);
+    _ppl2->screenTarget = screenTarget;
 
-        // input setup
-        _buffer = std::shared_ptr<Buffer>(new Buffer());
-        _attributes = std::shared_ptr<StreamMap>(new StreamMap());
-        _attributes->add("position4",  Type::FLOAT_VEC4, _buffer, _buffer->add(g_vertex_buffer_data));
-        _attributes->add("vertexUV",   Type::FLOAT_VEC2, _buffer, _buffer->add(g_uv_buffer_data));
-        _buffer->freeze();
-        _attributes->validate();
+    // pipeline input
+    _input = std::shared_ptr<PipelineInput>(new PipelineInput());
+    _input->setScreenSize(w, h);
+    _ppl->setPipelineInput(_input);
+    _ppl2->setPipelineInput(_input);
 
-        // add game 3D object
-        _object = _input->createObject("stream4", Primitive::TriangleList, _attributes, {});
-        M44F mat = { {1.0, 0.0, 0.0, 0.0}
-                   , {0.0, 1.0, 0.0, 0.0}
-                   , {0.0, 0.0, 1.0, 0.0}
-                   , {0.0, 0.0, 0.0, 1.0}
-                   };
-        _object->setUniform("MVP", mat);
-        float time = 0.0;
-        _object->setUniform("Time", time);
+    // input setup
+    _buffer = std::shared_ptr<Buffer>(new Buffer());
+    _attributes = std::shared_ptr<StreamMap>(new StreamMap());
+    _attributes->add("position4",  Type::FLOAT_VEC4, _buffer, _buffer->add(g_vertex_buffer_data));
+    _attributes->add("vertexUV",   Type::FLOAT_VEC2, _buffer, _buffer->add(g_uv_buffer_data));
+    _buffer->freeze();
+    _attributes->validate();
 
-    }
+    // add game 3D object
+    _object = _input->createObject("stream4", Primitive::TriangleList, _attributes, {});
+    M44F mat = { {1.0, 0.0, 0.0, 0.0}
+               , {0.0, 1.0, 0.0, 0.0}
+               , {0.0, 0.0, 1.0, 0.0}
+               , {0.0, 0.0, 0.0, 1.0}
+               };
+    _object->setUniform("MVP", mat);
+    float time = 0.0;
+    _object->setUniform("Time", time);
 }
 
 - (void)render:(float)t {
     _object->setUniform("Time", t);
     _ppl->render();
+}
+
+- (void)render2:(float)t {
+    _object->setUniform("Time", t);
+    _ppl2->render();
 }
 @end

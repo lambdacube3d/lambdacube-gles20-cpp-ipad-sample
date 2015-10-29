@@ -70,8 +70,12 @@
 #pragma mark - GLKViewDelegate
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-    float t = self.timeSinceFirstResume;
-    [_lcDriver render:t];
+    //float t = self.timeSinceFirstResume;
+    if (_increasing) {
+      [_lcDriver render:_curRed];
+    } else {
+      [_lcDriver render2:_curRed];
+    }
 }
 
 #pragma mark - GLKViewControllerDelegate
@@ -82,8 +86,8 @@
     } else {
         _curRed -= 1.0 * self.timeSinceLastUpdate;
     }
-    if (_curRed >= 1.0) {
-        _curRed = 1.0;
+    if (_curRed >= 5.0) {
+        _curRed = 5.0;
         _increasing = NO;
     }
     if (_curRed <= 0.0) {
