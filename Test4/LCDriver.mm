@@ -11,14 +11,16 @@
 #import "LCDriver.h"
 #include "LambdaCube.hpp"
 #include "IR.hpp"
+#include <OpenGLES/ES2/gl.h>
+
 
 @interface LCDriver () {
     GLES20Pipeline * _ppl;
     GLES20Pipeline * _ppl2;
     std::shared_ptr<PipelineInput> _input;
-    std::shared_ptr<Buffer> _buffer;
+    std::shared_ptr<GLBuffer> _buffer;
     std::shared_ptr<StreamMap> _attributes;
-    std::shared_ptr<Object> _object;
+    std::shared_ptr<GLObject> _object;
 }
 @end
 
@@ -149,10 +151,10 @@ std::vector<float> g_uv_buffer_data =
     _ppl2->setPipelineInput(_input);
 
     // input setup
-    _buffer = std::shared_ptr<Buffer>(new Buffer());
+    _buffer = std::shared_ptr<GLBuffer>(new GLBuffer());
     _attributes = std::shared_ptr<StreamMap>(new StreamMap());
-    _attributes->add("position4",  Type::FLOAT_VEC4, _buffer, _buffer->add(g_vertex_buffer_data));
-    _attributes->add("vertexUV",   Type::FLOAT_VEC2, _buffer, _buffer->add(g_uv_buffer_data));
+    _attributes->add("position4",  Type::FLOAT_VEC4, _buffer, _buffer->add(g_vertex_buffer_data.data(),GL_FLOAT,g_vertex_buffer_data.size()));
+    _attributes->add("vertexUV",   Type::FLOAT_VEC2, _buffer, _buffer->add(g_uv_buffer_data.data(),GL_FLOAT, g_uv_buffer_data.size()));
     _buffer->freeze();
     _attributes->validate();
 
