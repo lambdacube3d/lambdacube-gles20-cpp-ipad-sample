@@ -136,7 +136,7 @@ std::vector<float> g_uv_buffer_data =
     _ppl->screenTarget = screenTarget;
 
     // pipeline 2
-    filePath = [[NSBundle mainBundle] pathForResource:@"example06" ofType:@"json"];
+    filePath = [[NSBundle mainBundle] pathForResource:@"Tetrahedron" ofType:@"json"];
     myData = [NSData dataWithContentsOfFile:filePath];
     if (!myData) return;
     jobjIn = json::parse((const char*)myData.bytes);
@@ -171,12 +171,20 @@ std::vector<float> g_uv_buffer_data =
 }
 
 - (void)render:(float)t {
-    _object->setUniform("Time", t);
-    _ppl->render();
+    if(_object && _ppl) {
+        _input->setUniform("Time", t);
+        _object->setUniform("Time", t);
+     _ppl->render();
+    }
 }
 
 - (void)render2:(float)t {
-    _object->setUniform("Time", t);
-    _ppl2->render();
+    if(_object && _ppl2) {
+     _object->setUniform("Time", t);
+        _input->setUniform("Time", t);
+
+     _ppl2->render();
+
+    }
 }
 @end

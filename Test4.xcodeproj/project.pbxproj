@@ -22,6 +22,7 @@
 		C0429FC21BBFFE3600FD4018 /* LambdaCube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */; };
 		C077189A1BE1274A0051B6BE /* example06.json in Resources */ = {isa = PBXBuildFile; fileRef = C07718991BE1274A0051B6BE /* example06.json */; };
 		C077189C1BE1818A0051B6BE /* rotate01.json in Resources */ = {isa = PBXBuildFile; fileRef = C077189B1BE1818A0051B6BE /* rotate01.json */; };
+		C0C562171CB5597F0026E79D /* Tetrahedron.json in Resources */ = {isa = PBXBuildFile; fileRef = C0C562161CB5597F0026E79D /* Tetrahedron.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 		C0429FC11BBFFE3600FD4018 /* LambdaCube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = LambdaCube.hpp; sourceTree = "<group>"; };
 		C07718991BE1274A0051B6BE /* example06.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = example06.json; sourceTree = "<group>"; };
 		C077189B1BE1818A0051B6BE /* rotate01.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = rotate01.json; sourceTree = "<group>"; };
+		C0C562161CB5597F0026E79D /* Tetrahedron.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tetrahedron.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 		C017E9791BB8588F005C3367 /* Test4 */ = {
 			isa = PBXGroup;
 			children = (
+				C0C562161CB5597F0026E79D /* Tetrahedron.json */,
 				C077189B1BE1818A0051B6BE /* rotate01.json */,
 				C07718991BE1274A0051B6BE /* example06.json */,
 				C0429FC01BBFFE3600FD4018 /* LambdaCube.cpp */,
@@ -281,6 +284,7 @@
 				C077189C1BE1818A0051B6BE /* rotate01.json in Resources */,
 				C0429FBF1BBFF82000FD4018 /* gfx02.json in Resources */,
 				C017E9871BB8588F005C3367 /* Assets.xcassets in Resources */,
+				C0C562171CB5597F0026E79D /* Tetrahedron.json in Resources */,
 				C077189A1BE1274A0051B6BE /* example06.json in Resources */,
 				C0429FBA1BBEB08400FD4018 /* MainStoryboard.storyboard in Resources */,
 			);

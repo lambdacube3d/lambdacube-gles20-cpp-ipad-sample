@@ -32,6 +32,7 @@
 
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
+    view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
 
     [view bindDrawable];
     GLint screenTarget;
@@ -71,10 +72,10 @@
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     //float t = self.timeSinceFirstResume;
-    if (_increasing) {
-      [_lcDriver render:_curRed];
+    if (self.paused) {
+      [_lcDriver render:self.timeSinceFirstResume];
     } else {
-      [_lcDriver render2:_curRed];
+      [_lcDriver render2:self.timeSinceFirstResume];
     }
 }
 
@@ -86,8 +87,8 @@
     } else {
         _curRed -= 1.0 * self.timeSinceLastUpdate;
     }
-    if (_curRed >= 5.0) {
-        _curRed = 5.0;
+    if (_curRed >= 0.2) {
+        _curRed = 0.2;
         _increasing = NO;
     }
     if (_curRed <= 0.0) {
